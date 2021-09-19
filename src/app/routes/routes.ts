@@ -1,17 +1,18 @@
 import Home from "../components/pages/Home";
+import Login from "../components/pages/Login";
 
 export const publicRoutes = [
   {
     path: "/",
     exact: true,
-    component: Home,
+    component: Login,
   },
 ];
 
-// export const privateRoutes = [
-//   {
-//     path: "/dashboard",
-//     exact: true,
-//     component: Dashboard,
-//   },
-// ];
+export const privateRoutes = [
+  {
+    path: "/home",
+    exact: true,
+    component: Home,
+  },
+];
