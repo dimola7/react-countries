@@ -1,4 +1,4 @@
-import { Container } from "../ui/molecules/containers/Container.styles"
+import { Container } from "../styles/Containers.styles"
 
 const Layout = ({children}:any) => {
     return (
