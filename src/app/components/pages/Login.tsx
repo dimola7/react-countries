@@ -2,11 +2,14 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { useHistory } from "react-router";
 // import { Link } from "react-router-dom";
 import countriesApi from "../../api/countriesApi";
-import Layout from "../template/Layout";
+// import Layout from "../template/Layout";
 import Form from "../ui/molecules/Form";
-import { LoginContainer } from "../styles/Login.styles";
+import { LoginContainer, LeftGrid } from "../styles/Login.styles";
 import { InputField } from "../styles/Input.styles";
 import { Button } from "../styles/Buttons.styles";
+import earth from "../assets/img/earth.svg";
+import { Img } from "../styles/Image.styles";
+import { H1 } from "../styles/Texts.styles";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,10 +33,27 @@ const Login = () => {
   return (
     // <Layout>
     <LoginContainer>
-      <Form onSubmit={submitHandler}>
-        <InputField value={email} onChange={emailHandler} type="email" />
-        <Button>Sign in</Button>
-      </Form>
+      <LeftGrid>fool</LeftGrid>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Img src={earth} alt="" width="200px" />
+        <H1 style={{ color: "#aaa69d" }}>Countries</H1>
+        <Form onSubmit={submitHandler}>
+          <label style={{ fontSize: "18px", color: "#aaa69d" }}>Email</label>
+          <InputField
+            value={email}
+            onChange={emailHandler}
+            type="email"
+            placeholder="Email address"
+          />
+          <Button>Sign in</Button>
+        </Form>
+      </div>
     </LoginContainer>
     // </Layout>
   );

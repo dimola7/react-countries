@@ -1,5 +1,7 @@
-import { useEffect, useState, ChangeEvent } from "react";
+import { useEffect } from "react";
+// import { useEffect, useState, ChangeEvent } from "react";
 import Layout from "../template/Layout";
+import NavBar from "../ui/molecules/NavBar";
 import Results from "../ui/organisms/Results";
 import Input from "../ui/atoms/inputs/Input";
 import countriesApi from "../../api/countriesApi";
@@ -29,7 +31,8 @@ const Home = () => {
 
   return (
     <Layout>
-      <H1>Countries</H1>
+      <NavBar />
+      <H1 style={{ color: "#aaa69d" }}>Countries</H1>
       <Input />
       <div>
         <Results />
