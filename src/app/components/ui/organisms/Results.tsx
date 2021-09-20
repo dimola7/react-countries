@@ -1,11 +1,11 @@
-import Cards from "../molecules/cards/Cards"
+import Cards from "../molecules/Cards";
 
 const Results = () => {
-    return (
-        <div>
-            <Cards />
-        </div>
-    )
-}
+  return (
+    <div style={{ marginTop: "20px" }}>
+      <Cards />
+    </div>
+  );
+};
 
-export default Results
+export default Results;

@@ -6,12 +6,12 @@ import countriesApi from "../../api/countriesApi";
 import { H1 } from "../styles/Texts.styles";
 
 const Home = () => {
-  const [term, setTerm] = useState("");
+  //   const [term, setTerm] = useState("");
 
-  const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setTerm(e.target.value);
-    console.log(e.target.value);
-  };
+  //   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+  //     setTerm(e.target.value);
+  //     console.log(e.target.value);
+  //   };
 
   useEffect(() => {
     const token = localStorage.getItem("loginToken");
