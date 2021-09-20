@@ -13,7 +13,10 @@ const Input = () => {
   return (
     <div>
       <form>
-        <InputField value={term} onChange={inputHandler} />
+        <InputField
+          value={term}
+          onChange={inputHandler}
+        />
       </form>
     </div>
   );

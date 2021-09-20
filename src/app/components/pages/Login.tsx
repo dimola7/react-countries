@@ -3,8 +3,10 @@ import { useHistory } from "react-router";
 // import { Link } from "react-router-dom";
 import countriesApi from "../../api/countriesApi";
 import Layout from "../template/Layout";
-
+import Form from "../ui/molecules/Form";
+import { LoginContainer } from "../styles/Login.styles";
 import { InputField } from "../styles/Input.styles";
+import { Button } from "../styles/Buttons.styles";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,13 +28,14 @@ const Login = () => {
   };
 
   return (
-    <Layout>
-      <div>
-        <form onSubmit={submitHandler}>
-          <InputField value={email} onChange={emailHandler} type="email" />
-        </form>
-      </div>
-    </Layout>
+    // <Layout>
+    <LoginContainer>
+      <Form onSubmit={submitHandler}>
+        <InputField value={email} onChange={emailHandler} type="email" />
+        <Button>Sign in</Button>
+      </Form>
+    </LoginContainer>
+    // </Layout>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Card } from "../../../styles/Cards.styles";
+import { Card } from "../../styles/Cards.styles";
 
 const Cards = () => {
     return (
