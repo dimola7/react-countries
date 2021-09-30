@@ -1,41 +1,49 @@
-import { useEffect } from "react";
-// import { useEffect, useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import Layout from "../template/Layout";
 import NavBar from "../ui/molecules/NavBar";
 import Results from "../ui/organisms/Results";
-import Input from "../ui/atoms/inputs/Input";
+import { InputField } from "../styles/Input.styles";
 import countriesApi from "../../api/countriesApi";
 import { H1 } from "../styles/Texts.styles";
+// import { Loader } from "../styles/Loader.styles";
 
 const Home = () => {
-  //   const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("");
+  const [result, setResult] = useState([]);
+  const [currency, setCurrency] = useState(1);
 
-  //   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-  //     setTerm(e.target.value);
-  //     console.log(e.target.value);
-  //   };
+  const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setTerm(e.target.value);
+  };
 
-  useEffect(() => {
-    const token = localStorage.getItem("loginToken");
-    console.log("token is", token);
-    const test = async () => {
-      const data = await countriesApi.get(`/country/ghana`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log(data);
-    };
-    test();
-  }, []);
+  const token = localStorage.getItem("loginToken");
+
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { data } = await countriesApi.get(`/country/${term}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log(data.payload);
+
+    setResult(data.payload);
+  };
 
   return (
     <Layout>
       <NavBar />
+      {/* <Loader /> */}
       <H1 style={{ color: "#aaa69d" }}>Countries</H1>
-      <Input />
+      <form onSubmit={submitHandler}>
+        <InputField
+          onChange={inputHandler}
+          value={term}
+          placeholder="search countries"
+        />
+      </form>
       <div>
-        <Results />
+        <Results result={result} term={term} />
       </div>
     </Layout>
   );

@@ -1,11 +1,7 @@
 import { Card } from "../../styles/Cards.styles";
 
-const Cards = () => {
-    return (
-        <Card>
-            
-        </Card>
-    )
-}
+const Cards = ({ children }: any) => {
+  return <Card>{children}</Card>;
+};
 
-export default Cards
+export default Cards;

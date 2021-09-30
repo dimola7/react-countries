@@ -10,6 +10,7 @@ import { Button } from "../styles/Buttons.styles";
 import earth from "../assets/img/earth.svg";
 import { Img } from "../styles/Image.styles";
 import { H1 } from "../styles/Texts.styles";
+// import Modal from "../ui/molecules/Modal";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,12 +23,18 @@ const Login = () => {
 
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { data } = await countriesApi.post(`/auth/login`, {
-      email: email,
-    });
-    console.log(data.token);
-    localStorage.setItem("loginToken", data.token);
-    history.replace("/home");
+    if (email.length > 0) {
+      const { data } = await countriesApi.post(`/auth/login`, {
+        email: email,
+      });
+      console.log(data.token);
+      localStorage.setItem("loginToken", data.token);
+      history.push("/home");
+    }
+    // else {
+    //   console.log("enter something joor");
+    //   return <Modal />;
+    // }
   };
 
   return (
@@ -53,6 +60,7 @@ const Login = () => {
           />
           <Button>Sign in</Button>
         </Form>
+        {/* <Modal /> */}
       </div>
     </LoginContainer>
     // </Layout>
