@@ -9,26 +9,25 @@ interface SearchProps {
 }
 
 const Results: React.FC<SearchProps> = (props: any) => {
-  console.log(props);
   return (
     <CardContainer>
       {props.result.length > 0 ? (
         props.result.map((country: any) => (
           <Cards key={country.shortName}>
-            <H2>{country.name}</H2>
+            <H2>
+              {country.emoji} {country.name}
+            </H2>
             <hr />
             <p>Capital city: {country.capital}</p>
             <p>Population: {Math.floor(Math.random() * 10000000)}</p>
             <p>Currency: {country.currency}</p>
             <h3>Currency Converter</h3>
             <hr />
-            <CurrencyConverter />
+            <CurrencyConverter currency={country.currency} />
           </Cards>
         ))
       ) : (
-        <div style={{ height: "20px", color: "black" }}>
-          Search for countries
-        </div>
+        <h1 style={{ height: "20px", color: "#fff" }}>No results found</h1>
       )}
     </CardContainer>
   );

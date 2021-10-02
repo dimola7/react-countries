@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Nav } from "../../styles/NavBar.styles";
 import { Img } from "../../styles/Image.styles";
 import { Logo } from "../../styles/NavBar.styles";
@@ -11,7 +12,9 @@ const NavBar = () => {
         <Img src={earth} alt="" style={{ width: "30px" }} />
         <h2 style={{ color: "#aaa69d" }}>Countries</h2>
       </Logo>
-      <LogoutBtn>Logout</LogoutBtn>
+      <Link to="/">
+        <LogoutBtn>Logout</LogoutBtn>
+      </Link>
     </Nav>
   );
 };

@@ -1,0 +1,31 @@
+.converter-div {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.converter-div > .input-div {
+  display: grid;
+}
+.converter-div > .input-div > input {
+  width: 120px;
+  height: 40px;
+  background-color: #aaa69d;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-size: 18px;
+  padding: 10px;
+}
+.converter-div > .conversion {
+  display: grid;
+}
+.converter-div > .conversion > div {
+  width: 120px;
+  height: 40px;
+  background-color: #aaa69d;
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

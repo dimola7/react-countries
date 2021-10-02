@@ -5,12 +5,12 @@ import Results from "../ui/organisms/Results";
 import { InputField } from "../styles/Input.styles";
 import countriesApi from "../../api/countriesApi";
 import { H1 } from "../styles/Texts.styles";
-// import { Loader } from "../styles/Loader.styles";
+// import Loader from "react-loader-spinner";
 
 const Home = () => {
   const [term, setTerm] = useState("");
   const [result, setResult] = useState([]);
-  const [currency, setCurrency] = useState(1);
+  // const [loading, setLoading] = useState(false);
 
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setTerm(e.target.value);
@@ -25,7 +25,9 @@ const Home = () => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(data.payload);
+    // if (!result.length) {
+    // setLoading(true);
+    // }
 
     setResult(data.payload);
   };
@@ -33,7 +35,6 @@ const Home = () => {
   return (
     <Layout>
       <NavBar />
-      {/* <Loader /> */}
       <H1 style={{ color: "#aaa69d" }}>Countries</H1>
       <form onSubmit={submitHandler}>
         <InputField
@@ -42,9 +43,16 @@ const Home = () => {
           placeholder="search countries"
         />
       </form>
+
+      {/* {loading ? ( */}
       <div>
         <Results result={result} term={term} />
       </div>
+      {/* ) : ( */}
+      {/* <div>
+        <Loader type="Oval" color="#fff" height={100} width={100} />
+      </div> */}
+      {/* )} */}
     </Layout>
   );
 };
