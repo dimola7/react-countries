@@ -11,7 +11,7 @@ export const Button = Styled.button`
     height: 40px;
     font-size: 16px;
     border-radius: 4px;
-    box-sizing: border - box;
+    box-sizing: border-box;
     padding: 12px 12px;
     border: none;
     cursor: pointer;
@@ -23,6 +23,19 @@ export const Button = Styled.button`
     }
 `
 
-// .form input{
+export const LogoutBtn = Styled.button`
+    background-color: #fff;
+    color: #1F1F21;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    height: 30px;
+    width: 80px;
+    margin-right: 20px;
 
-// }
+    &:hover{
+        color: #fff;
+        background-color: #1F1F21;
+        border: 1px solid #1f1f1f;
+    }
+`
